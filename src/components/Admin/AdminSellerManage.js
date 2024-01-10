@@ -509,7 +509,7 @@ function AdminSellerManage() {
 									<th className='admin-seller-manage-data-table-header'>
 										Agent Name
 									</th>
-{/*
+									{/*
 									<th className='admin-seller-manage-data-table-header'>
 										GST NO
 									</th>
@@ -552,9 +552,8 @@ function AdminSellerManage() {
 										<td className='admin-seller-manage-data-table-data'>
 											{seller.sellercompanyname?.substring(0, 18) ?? 'N/A'}
 										</td>
-										
 										<td className='admin-seller-manage-data-table-data'>
-											{seller.sellercompanystatename?.substring(0, 12) ?? 'N/A'}
+											{seller.sellercompanygstno?.substring(0, 12) ?? 'N/A'}
 										</td>
 										<td className='admin-seller-manage-data-table-data'>
 											{seller.sellercompanystatename?.substring(0, 12) ?? 'N/A'}
@@ -657,7 +656,7 @@ function AdminSellerManage() {
 								{formik.errors.sellercompanyname}
 							</div>
 						) : null}
-{/*
+						{/*
 						<input
 							type='text'
 							required

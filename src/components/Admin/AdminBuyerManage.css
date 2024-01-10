@@ -211,6 +211,7 @@
 	font-weight: 400;
 	line-height: 26px;
 	letter-spacing: -0.289px;
+	text-transform: uppercase;
 }
 
 .admin-buyer-manage-form-button {
