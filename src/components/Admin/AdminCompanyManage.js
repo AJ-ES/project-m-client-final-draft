@@ -20,7 +20,7 @@ const validationSchema = Yup.object().shape({
 			/^[A-Z0-9]{15}$/,
 			'GST No must be 15 characters long and contain only uppercase letters and numerics'
 		),
-	companycontact: Yup.string().required('Contact is required'),
+	// companycontact: Yup.string().required('Contact is required'),
 	companyofficeaddress: Yup.string().required('Office Address is required'),
 	companystate: Yup.string().required('State is required'),
 });

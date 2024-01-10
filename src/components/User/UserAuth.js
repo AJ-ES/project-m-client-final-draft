@@ -40,14 +40,14 @@ const UserAuthProvider = (props) => {
             useridproof,
             useraddress,
         };
-
+    
         setUser(newUser);
         saveUserToLocalStorage(newUser);
-
+    
         setAccess(useraccess);
         saveUserAccessToLocalStorage(useraccess);
     };
-
+    
     const setUserAccess = (newAccess) => {
         setAccess(newAccess);
         saveUserAccessToLocalStorage(newAccess);

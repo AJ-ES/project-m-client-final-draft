@@ -25,20 +25,22 @@ function StaffLogin() {
 		validationSchema: validationSchema,
 		onSubmit: (values) => {
 			const { Email, password } = values;
-
+		
 			let matchFound = false;
 			let access = '';
-
+			let staffname = '';  // Declare staffname here
+		
 			auth.stafflist.forEach((item) => {
 				if (item.staffemail === Email && item.staffpassword === password) {
 					matchFound = true;
 					access = item.staffaccess;
+					staffname = item.staffname;  // Assign the value here
 					return;
 				}
 			});
-
+		
 			if (matchFound) {
-				auth.stafflogin(Email, password, access);
+				auth.stafflogin(staffname,Email, password, access);
 				auth.setStaffAccess(access);
 				switch (access) {
 					case 'Super-Staff':
@@ -57,7 +59,7 @@ function StaffLogin() {
 				formik.setFieldError('Email', 'Invalid username or password');
 				formik.setFieldError('password', 'Invalid username or password');
 			}
-		},
+		},		
 	});
 
 	return (

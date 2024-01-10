@@ -65,7 +65,7 @@ function App() {
 								</ReqAdminAuth>
 							}
 						/>
-						<Route path='/pdf/:selectedInvoiceId' element={<PdfViewer />} />
+						<Route path='/pdf/:selectedInvoiceId/:timestamp' element={<PdfViewer />} />
 						<Route
 							path='/admininvdash'
 							element={

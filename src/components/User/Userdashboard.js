@@ -7,15 +7,18 @@ import mu from '../images/mu.png';
 import mv from '../images/mv.png';
 import mi from '../images/mi.png';
 import ms from '../images/ms.png';
+import ad from '../images/ad.png';
+import vs from '../images/vs.png';
 import { useUserAuth } from './UserAuth';
 import { useNavigate } from 'react-router-dom';
 
-function UserDashboard() {
+function Userdashboard() {
   const auth = useUserAuth();
   const navigate = useNavigate();
+
   const handleLogout = () => {
     auth.userlogout();
-  }
+}
   return (
     <div
       style={{
@@ -25,56 +28,55 @@ function UserDashboard() {
         minHeight: '100vh',
       }}
     >
-     <div className='user-dashboard'>
-     <div className='user-logout'>
-        <div className='user-logout-box'>
-          <div className='user-logout-container'>
-            <div className='user-logout-button'>
-              <button className='user-logout-button-value'  onClick={handleLogout}>
+     <div className='admin-dashboard'>
+     <div className='admin-logout'>
+        <div className='admin-logout-box'>
+          <div className='admin-logout-container'>
+            <div className='admin-logout-button'>
+              <button className='admin-logout-button-value'  onClick={handleLogout}>
                 LOGOUT
-              <img className='user-logout-icon' src={mu} alt='icon'/>
-
+              <img className='admin-logout-icon' src={mu} alt='icon'/>
               </button>
             </div>
           </div>
         </div>
       </div>
-        <h1 className='user-dashboard-title'>MAIN MENU</h1>
-          <div className='user-dashboard-buttons'>
-            <div className='user-dashboard-buttons-row'>
-              <button className='user-dashboard-button' onClick={() => navigate('/usercomman')}>
-                <div className='user-card-box'>
-                  <img src={gr} alt='gr' className='user-dashboard-button-icon' />
+        <h1 className='admin-dashboard-title'>MAIN MENU</h1>
+          <div className='admin-dashboard-buttons'>
+            <div className='admin-dashboard-buttons-row'>
+              <button className='admin-dashboard-button' onClick={() => navigate('/userinvdash')}>
+                <div className='admin-card-box'>
+                  <img src={mi} alt='ms' className='admin-dashboard-button-icon' />
+                  <span>MANAGE INVOICE</span>
+                </div>
+              </button> 
+              <button className='admin-dashboard-button'  onClick={() => navigate('/uservecman')}>
+                <div className='admin-card-box'>
+                  <img src={vs} alt='' className='admin-dashboard-button-icon' />
+                  <span>MANAGE LOADING</span>
+                </div>
+              </button>
+              <button className='admin-dashboard-button'  onClick={() => navigate('/usercomman')}>
+                <div className='admin-card-box'>
+                  <img src={mc} alt='mc' className='admin-dashboard-button-icon' />
                   <span>MANAGE COMPANY</span>
                 </div>
               </button>
-              <button className='user-dashboard-button' onClick={() => navigate('/usersellman')}>
-                <div className='user-card-box'>
-                  <img src={mu} alt='mu' className='user-dashboard-button-icon' />
+              <button className='admin-dashboard-button'  onClick={() => navigate('/usersellman')}>
+                <div className='admin-card-box'>
+                  <img src={mv} alt='mv' className='admin-dashboard-button-icon' />
                   <span>MANAGE AGENTS</span>
                 </div>
               </button>
-              <button className='user-dashboard-button' onClick={() => navigate('/userbuyman')}>
-                <div className='user-card-box'>
-                  <img src={ms} alt='ms' className='user-dashboard-button-icon' />
+              <button className='admin-dashboard-button'  onClick={() => navigate('/userbuyman')}>
+                <div className='admin-card-box'>
+                  <img src={ms} alt='mi' className='admin-dashboard-button-icon' />
                   <span>MANAGE BUYERS</span>
                 </div>
               </button>
-              <button className='user-dashboard-button' onClick={() => navigate('/uservecman')}>
-                <div className='user-card-box'>
-                  <img src={mv} alt='mv' className='user-dashboard-button-icon' />
-                  <span>MANAGE VEHICLES</span>
-                </div>
-              </button>
-              <button className='user-dashboard-button' onClick={() => navigate('/userinvdash')}>
-                <div className='user-card-box'>
-                  <img src={mi} alt='mi' className='user-dashboard-button-icon' />
-                  <span>MANAGE INVOICE</span>
-                </div>
-              </button>
-              <button className='user-dashboard-button'onClick={() => navigate('/userconman')}>
-                <div className='user-card-box'>
-                  <img src={mc} alt='mc' className='user-dashboard-button-icon' />
+              <button className='admin-dashboard-button'  onClick={() => navigate('/userconman')}>
+                <div className='admin-card-box'>
+                  <img src={ad} alt='mc' className='admin-dashboard-button-icon' />
                   <span>MANAGE CONSIGNMENT</span>
                 </div>
               </button>
@@ -85,4 +87,4 @@ function UserDashboard() {
   )
 }
 
-export default UserDashboard
+export default Userdashboard

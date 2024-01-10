@@ -646,6 +646,7 @@ function AdminBuyerManage() {
 							required
 							className='admin-buyer-manage-form-input'
 							placeholder='Company GST Number'
+							pattern='[A-Z]'
 							{...formik.getFieldProps('buyercompanygstno')}
 						/>
 						{formik.touched.buyercompanygstno &&

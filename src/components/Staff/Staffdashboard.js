@@ -7,17 +7,18 @@ import mu from '../images/mu.png';
 import mv from '../images/mv.png';
 import mi from '../images/mi.png';
 import ms from '../images/ms.png';
+import ad from '../images/ad.png';
 import vs from '../images/vs.png';
-import {useStaffAuth } from './StaffAuth';
+import { useStaffAuth } from './StaffAuth';
 import { useNavigate } from 'react-router-dom';
 
-function StaffDashboard() {
+function Staffdashboard() {
   const auth = useStaffAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
     auth.stafflogout();
-  }
+}
   return (
     <div
       style={{
@@ -27,68 +28,61 @@ function StaffDashboard() {
         minHeight: '100vh',
       }}
     >
-     <div className='staff-dashboard'>
-     <div className='staff-logout'>
-        <div className='staff-logout-box'>
-          <div className='staff-logout-container'>
-            <div className='staff-logout-button'>
-              <button className='staff-logout-button-value'  onClick={handleLogout}>
+     <div className='admin-dashboard'>
+     <div className='admin-logout'>
+        <div className='admin-logout-box'>
+          <div className='admin-logout-container'>
+            <div className='admin-logout-button'>
+              <button className='admin-logout-button-value'  onClick={handleLogout}>
                 LOGOUT
-              <img className='staff-logout-icon' src={mu} alt='icon'/>
-
+              <img className='admin-logout-icon' src={mu} alt='icon'/>
               </button>
             </div>
           </div>
         </div>
       </div>
-        <h1 className='staff-dashboard-title'>MAIN MENU</h1>
-          <div className='staff-dashboard-buttons'>
-            <div className='staff-dashboard-buttons-row'>
-              <button className='staff-dashboard-button' onClick={() => navigate('/staffgenrep')}>
-                <div className='staff-card-box'>
-                  <img src={gr} alt='gr' className='staff-dashboard-button-icon' />
+        <h1 className='admin-dashboard-title'>MAIN MENU</h1>
+          <div className='admin-dashboard-buttons'>
+            <div className='admin-dashboard-buttons-row'>
+              <button className='admin-dashboard-button' onClick={() => navigate('/staffgenrep')}>
+                <div className='admin-card-box'>
+                  <img src={gr} alt='gr' className='admin-dashboard-button-icon' />
                   <span>GENERATE REPORTS</span>
                 </div>
               </button>
-              <button className='staff-dashboard-button' onClick={() => navigate('/staffsellman')}>
-                <div className='staff-card-box'>
-                  <img src={ms} alt='mu' className='staff-dashboard-button-icon' />
+              <button className='admin-dashboard-button' onClick={() => navigate('/staffinvdash')}>
+                <div className='admin-card-box'>
+                  <img src={mi} alt='ms' className='admin-dashboard-button-icon' />
+                  <span>MANAGE INVOICE</span>
+                </div>
+              </button> 
+              <button className='admin-dashboard-button'  onClick={() => navigate('/staffvecman')}>
+                <div className='admin-card-box'>
+                  <img src={vs} alt='' className='admin-dashboard-button-icon' />
+                  <span>MANAGE LOADING</span>
+                </div>
+              </button>
+              <button className='admin-dashboard-button'  onClick={() => navigate('/staffcomman')}>
+                <div className='admin-card-box'>
+                  <img src={mc} alt='mc' className='admin-dashboard-button-icon' />
+                  <span>MANAGE COMPANY</span>
+                </div>
+              </button>
+              <button className='admin-dashboard-button'  onClick={() => navigate('/staffsellman')}>
+                <div className='admin-card-box'>
+                  <img src={mv} alt='mv' className='admin-dashboard-button-icon' />
                   <span>MANAGE AGENTS</span>
                 </div>
               </button>
-              <button className='staff-dashboard-button' onClick={() => navigate('/staffbuyman')}>
-                <div className='staff-card-box'>
-                  <img src={ms} alt='ms' className='staff-dashboard-button-icon' />
+              <button className='admin-dashboard-button'  onClick={() => navigate('/staffbuyman')}>
+                <div className='admin-card-box'>
+                  <img src={ms} alt='mi' className='admin-dashboard-button-icon' />
                   <span>MANAGE BUYERS</span>
                 </div>
               </button>
-              <button className='staff-dashboard-button' onClick={() => navigate('/staffconman')}>
-              <div className='staff-card-box'>
-                <img src={mu} alt='ms' className='staff-dashboard-button-icon' />
-                <span>MANAGE COMPANY</span>
-                </div>
-              </button>
-              <button className='staff-dashboard-button' onClick={() => navigate('/staffvecman')}>
-                <div className='staff-card-box'>
-                  <img src={vs} alt='mv' className='staff-dashboard-button-icon' />
-                  <span>MANAGE VEHICLES</span>
-                </div>
-              </button>
-              <button className='staff-dashboard-button' onClick={() => navigate('/staffinvdash')}>
-                <div className='staff-card-box'>
-                  <img src={mi} alt='mi' className='staff-dashboard-button-icon' />
-                  <span>MANAGE INVOICE</span>
-                </div>
-              </button>
-              <button className='staff-dashboard-button' onClick={() => navigate('/staffcomman')}>
-                <div className='staff-card-box'>
-                  <img src={mc} alt='mc' className='staff-dashboard-button-icon' />
-                  <span>MANAGE CLIENT</span>
-                </div>
-              </button>
-              <button className='staff-dashboard-button' onClick={() => navigate('/staffconman')}>
-                <div className='staff-card-box'>
-                  <img src={mv} alt='mc' className='staff-dashboard-button-icon' />
+              <button className='admin-dashboard-button'  onClick={() => navigate('/staffconman')}>
+                <div className='admin-card-box'>
+                  <img src={ad} alt='mc' className='admin-dashboard-button-icon' />
                   <span>MANAGE CONSIGNMENT</span>
                 </div>
               </button>
@@ -99,4 +93,4 @@ function StaffDashboard() {
   )
 }
 
-export default StaffDashboard
+export default Staffdashboard

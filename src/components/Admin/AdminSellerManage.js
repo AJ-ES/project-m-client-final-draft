@@ -82,7 +82,7 @@ function AdminSellerManage() {
 		initialValues: {
 			sellerid: '',
 			sellercompanyname: '',
-			sellercompanygstno: '',
+			//sellercompanygstno: '',
 			sellercompanyaddress: '',
 			sellercompanystatename: '',
 			sellercompanystatecode: '',
@@ -90,7 +90,7 @@ function AdminSellerManage() {
 		validationSchema: Yup.object({
 			sellerid: Yup.string().required('Agent ID is required'),
 			sellercompanyname: Yup.string().required('Company Name is required'),
-			sellercompanygstno: Yup.string().required('GST Number is required'),
+			//sellercompanygstno: Yup.string().required('GST Number is required'),
 			sellercompanyaddress: Yup.string().required(
 				'Company Address is required'
 			),
@@ -507,7 +507,7 @@ function AdminSellerManage() {
 										Agents Id
 									</th>
 									<th className='admin-seller-manage-data-table-header'>
-										Company Name
+										Agent Name
 									</th>
 {/*
 									<th className='admin-seller-manage-data-table-header'>
@@ -516,6 +516,9 @@ function AdminSellerManage() {
 */}
 									<th className='admin-seller-manage-data-table-header'>
 										State Name
+									</th>
+									<th className='admin-seller-manage-data-table-header'>
+										State Code
 									</th>
 									<th className='admin-seller-manage-data-table-header'>
 										Action
@@ -549,8 +552,9 @@ function AdminSellerManage() {
 										<td className='admin-seller-manage-data-table-data'>
 											{seller.sellercompanyname?.substring(0, 18) ?? 'N/A'}
 										</td>
+										
 										<td className='admin-seller-manage-data-table-data'>
-											{seller.sellercompanygstno?.substring(0, 12) ?? 'N/A'}
+											{seller.sellercompanystatename?.substring(0, 12) ?? 'N/A'}
 										</td>
 										<td className='admin-seller-manage-data-table-data'>
 											{seller.sellercompanystatename?.substring(0, 12) ?? 'N/A'}

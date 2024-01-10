@@ -1,66 +1,57 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-//import printIcon from '../images/printer.png';
-// import Download from '../images/download_icon.gif';
+const PdfViewer = () => {
+  const { selectedInvoiceId, timestamp } = useParams();
+  const API = process.env.REACT_APP_API;
+  const share = `http://localhost:3000/pdf`
+  const pdfUrl = `${API}download/${selectedInvoiceId}`;
+  const [isUrlValid, setIsUrlValid] = useState(true);
+  const WhatsAppAPIshareURL = `${share}/${selectedInvoiceId}/${timestamp}`;
 
-const AdminPdfViewer = () => {
-	const { selectedInvoiceId } = useParams();
-	const API = process.env.REACT_APP_API;
-	const pdfUrl = `${API}download/${selectedInvoiceId}`;
-	// console.log('pdfUrl', pdfUrl);
+  useEffect(() => {
+    const checkUrlValidity = () => {
+      const currentTimestamp = Date.now();
+      const urlExpirationTime = parseInt(timestamp, 10);
 
-	//const handlePrint = () => {
-//		window.print();
-//	};
+      // Check if the URL is still valid
+      if (currentTimestamp > urlExpirationTime) {
+        setIsUrlValid(false);
+      }
+    };
 
-	// const handleDownload = () => {
-	// 	window.location = `${API}download/${selectedInvoiceId}`;
-	// };
+    checkUrlValidity();
+  }, [timestamp]);
 
-	return (
-		<div style={{ position: 'relative', width: '100%', height: '100vh' }}>
-			<iframe
-				id='pdfViewerIframe'
-				title='PDF Viewer'
-				src={`https://docs.google.com/viewer?url=${encodeURIComponent(
-					pdfUrl
-				)}&embedded=true`}
-				style={{ width: '100%', height: '100%', border: 'none' }}
-			/>
-{/*
-			<div
-				style={{
-					position: 'absolute',
-					bottom: '10px',
-					right: '25px',
-					zIndex: 999,
-				}}
-			>
-				<img
-					src={printIcon}
-					alt='Print'
-					style={{
-						width: '70px',
-						height: '70px',
-						cursor: 'pointer',
-					}}
-					onClick={handlePrint}
-				/>
-				<img
-					src={Download}
-					alt='Download'
-					style={{
-						width: '60px',
-						height: '60px',
-						cursor: 'pointer',
-					}}
-					onClick={handleDownload}
-				/> 
-			</div>
-*/}
-		</div>
-	);
+  if (!isUrlValid) {
+    return <div>Sorry, the PDF link has expired or is invalid.</div>;
+  }
+
+  const phoneNumber = "+919676657083"; // Replace with the actual phone number from your database
+
+  const openWhatsApp = () => {
+    const message = `Check out this document: ${WhatsAppAPIshareURL}`;		// Replace with the actual message from your database
+    const shareableUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(shareableUrl, "_blank");
+  };
+
+  return (
+    <div>
+      <div style={{ position: 'relative', width: '100%', height: '100vh' }}>
+        {isUrlValid && (
+          <iframe
+            id='pdfViewerIframe'
+            title='PDF Viewer'
+            src={`https://docs.google.com/viewer?url=${encodeURIComponent(
+              pdfUrl
+            )}&embedded=true`}
+            style={{ width: '100%', height: '100%', border: 'none' }}
+          />
+        )}
+      </div>
+      <button onClick={openWhatsApp}>Share via WhatsApp</button>
+    </div>
+  );
 };
 
-export default AdminPdfViewer;
+export default PdfViewer;

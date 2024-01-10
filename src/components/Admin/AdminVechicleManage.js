@@ -230,7 +230,7 @@ function AdminLoadingManage() {
 				});
 		}
 
-		formik.resetForm();
+		stateFormik.resetForm();
 		setSelectedStateId(null);
 	};
 

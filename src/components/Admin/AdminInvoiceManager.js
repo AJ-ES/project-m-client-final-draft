@@ -45,12 +45,17 @@ function AdminInvoiceManagement() {
 	// const changePage = ({ selected }) => {
 	// 	setPageNumber(selected);
 	// };
-
 	const ViewInvoice = (invoiceid) => {
-  setSelectedInvoiceId(invoiceid);
-  const pdfUrl = `${invoiceid}`;
+  // Set expiration timestamp to 1 minute in the future
+  const expirationTimestamp = Date.now() + 5 * 24 * 60 * 60 * 1000; 
+  // 1 minute in milliseconds
+  console.log(`${API}/download/${invoiceid}`)
+  const pdfUrl = `${invoiceid}/${expirationTimestamp}`;
   navigate(`/pdf/${pdfUrl}`);
-};
+}
+
+
+
 	// const PrintInvoice = (invoiceid) => {
 	// 	setSelectedInvoiceId(invoiceid);
 	// 	if (selectedInvoiceId) {

@@ -1,18 +1,17 @@
 import React from 'react'
-import './UserdashboardGeneral.css';
+import './UserdashboardGeneral.css'
 import background from '../images/Desktop.png';
-import mc from '../images/mc.png';
-import mu from '../images/mu.png';
-import { useUserAuth } from './UserAuth';
+import gr from '../images/gr.png';
+import ad from '../images/ad.png';
 import { useNavigate } from 'react-router-dom';
+import { useUserAuth } from './UserAuth';
 
-function UserDashboardGeneral() {
-  const auth = useUserAuth();
+function UserdashboardGeneral() {
   const navigate = useNavigate();
-
-  const handleLogout = () => {
-    auth.userlogout();
-  }
+  const auth = useUserAuth();
+  const handleLogout = () => { 
+  auth.userlogout();
+}
   return (
     <div
       style={{
@@ -22,26 +21,31 @@ function UserDashboardGeneral() {
         minHeight: '100vh',
       }}
     >
-     <div className='user-dashboard-general'>
-     <div className='user-logout-general'>
-        <div className='user-logout-box-general'>
-          <div className='user-logout-container-general'>
-            <div className='user-logout-button-general'>
-              <button className='user-logout-button-value-general'  onClick={handleLogout}>
+     <div className='admin-in-dashboard'>
+     <div className='admin-in-logout'>
+        <div className='admin-in-logout-box'>
+          <div className='admin-in-logout-container'>
+            <div className='admin-in-logout-button'>
+              <button className='admin-in-logout-button-value'  onClick={handleLogout}>
                 LOGOUT
-              <img className='user-logout-icon-general' src={mu} alt='icon'/>
               </button>
             </div>
           </div>
         </div>
       </div>
-        <h1 className='user-dashboard-title-general'>MAIN MENU</h1>
-          <div className='user-dashboard-buttons-general'>
-            <div className='user-dashboard-buttons-row-general'>
-              <button className='user-dashboard-button-general' onClick={() => navigate('/userconman')}>
-                <div className='user-card-box-general'>
-                  <img src={mc} alt='mc' className='user-dashboard-button-icon-general' />
-                  <span>MANAGE CONSIGNMENT</span>
+        <h1 className='admin-in-dashboard-title'>MAIN MENU</h1>
+          <div className='admin-in-dashboard-buttons'>
+            <div className='admin-in-dashboard-buttons-row'>
+              <button className='admin-in-dashboard-button' onClick={() => navigate('/userinman')}>
+                <div className='admin-in-card-box'>
+                  <img src={gr} alt='gr' className='admin-in-dashboard-button-icon' />
+                  <span>INOVICE MANAGEMENT</span>
+                </div>
+              </button>
+              <button className='admin-in-dashboard-button' onClick={() => navigate('/usercrein')}>
+                <div className='admin-in-card-box'>
+                  <img src={ad} alt='mu' className='admin-in-dashboard-button-icon' />
+                  <span>CREATE INVOICE</span>
                 </div>
               </button>
             </div>
@@ -51,4 +55,4 @@ function UserDashboardGeneral() {
   )
 }
 
-export default UserDashboardGeneral
+export default  UserdashboardGeneral
