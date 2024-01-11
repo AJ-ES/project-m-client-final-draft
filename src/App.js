@@ -48,6 +48,7 @@ import UserCreateInvoice from './components/User/UserCreateInvoice';
 import PdfViewer from './components/Admin/AdminPdfViewer';
 import StaffPdfViewer from './components/Staff/StaffInvoiceView';
 import UserPdfViewer from './components/User/UserInvoiceView';
+import AdminViewandEditInvoice from './components/Admin/AdminViewandEditInvoice';
 
 function App() {
 	return (
@@ -56,6 +57,7 @@ function App() {
 				{/* Admin Routes */}
 				<AdminAuthProvider>
 					<Routes>
+						<Route path='/in' element={<AdminViewandEditInvoice />} />
 						<Route path='/' element={<AdminLogin />} />
 						<Route
 							path='/admindashboard'
